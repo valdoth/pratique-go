@@ -22,6 +22,6 @@ func main() {
 	fmt.Println(myExample)
 	fmt.Println(fooExample)
 
-	myContact := newContact("Tsiaro", 30)
+	myContact := newContact1("Tsiaro", 30)
 	fmt.Println(myContact)
 }
