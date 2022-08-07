@@ -1,7 +1,16 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"net/http"
+)
+
+const port = ":8000"
 
 func main() {
-	fmt.Println("Hello wordl!")
+	http.HandleFunc("/", Home)
+	http.HandleFunc("/about", About)
+
+	fmt.Println("http://localhost:8000 - Server started on port: ", port)
+	http.ListenAndServe(port, nil)
 }
