@@ -10,7 +10,7 @@ type Rsvp struct {
 }
 
 var responses = make([]*Rsvp, 0, 10)
-var templates = make(map[string]*template.Template, 3)
+var templates = make(map[string]*template.Template, 4)
 
 func loadTemplates() {
 	// TODO - load templates here
