@@ -33,7 +33,7 @@ func welcomeHandler(writer http.ResponseWriter, request *http.Request) {
 }
 
 func listHandler(writer http.ResponseWriter, request *http.Request) {
-	templates["list"].Execute(writer, nil)
+	templates["list"].Execute(writer, responses)
 }
 
 type formData struct {
@@ -84,6 +84,8 @@ func main() {
 	http.HandleFunc("/", welcomeHandler)
 	http.HandleFunc("/list", listHandler)
 	http.HandleFunc("/form", formHandler)
+
+	http.Handle("/assets/", http.StripPrefix("/assets/", http.FileServer(http.Dir("assets"))))
 
 	err := http.ListenAndServe(":5000", nil)
 
